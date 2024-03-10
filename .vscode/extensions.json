@@ -1,0 +1,9 @@
+{
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=827846
+  "recommendations": [
+    "angular.ng-template",
+    "zignd.html-css-class-completion",
+    "hossaini.bootstrap-intellisense",
+    "janne252.fontawesome-autocomplete"
+  ]
+}

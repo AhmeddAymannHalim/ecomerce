@@ -1,0 +1,59 @@
+<section class="my-5">
+  <div class="row g-0">
+    <div class="col-md-8">
+      <owl-carousel-o [options]="MainSlider">
+        <ng-template carouselSlide><img src="./assets/Images/main-slider-3.jpeg" class="w-100" height="400" alt=""></ng-template>
+        <ng-template carouselSlide><img src="./assets/Images/main-slider-2.jpeg" class="w-100" height="400" alt=""></ng-template>
+        <ng-template carouselSlide><img src="./assets/Images/blog-img-1.jpeg" class="w-100" height="400" alt=""></ng-template>
+        <ng-template carouselSlide><img src="./assets/Images/blog-img-2.jpeg" class="w-100" height="400" alt=""></ng-template>
+        <ng-template carouselSlide><img src="./assets/Images/banner-4.jpeg" class="w-100" height="400" alt=""></ng-template>
+
+      </owl-carousel-o>
+
+    </div>
+    <div class="col-md-4">
+
+        <img src="./assets/Images/slide-1.jpeg" class="w-100" height="200" alt="">
+        <img src="./assets/Images/slide-2.jpeg" class="w-100" height="200" alt="">
+
+    </div>
+  </div>
+</section>
+
+<!-- CategoirsSlider -->
+<section class="my-5">
+  <h1 class="h4">Shop Popular Categories</h1>
+  <owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let slide of categories">
+      <ng-template carouselSlide>
+        <div>
+          <img [src]="slide.image" class="w-100" height="270" [alt]="slide.name">
+        <h3 class="h5">{{slide.name}}</h3>
+        </div>
+      </ng-template>
+    </ng-container>
+
+  </owl-carousel-o>
+</section>
+
+<!-- Products -->
+<section class="my-3">
+  <h3 class="text-center text-main h1 py-3">Popular Products</h3>
+  <div class="row g-4">
+    <div class="col-md-2" *ngFor="let product of products.slice(0,6)|search:searchTerm ">
+      <div class=" product">
+
+       <div class="p-2 cursor-pointer" [routerLink]="['/details',product._id]">
+        <img [src]="product.imageCover" class="w-100 " [alt]="product.title">
+        <h3 class="text-main h6">{{product.category.name |buy}}</h3>
+        <h3 class="h6">{{product.title |term:4}}</h3>
+        <div class="d-flex  justify-content-between align-items-center  ">
+            <span>{{product.price | currency}}</span>
+            <span class="text-muted"><i class="fas fa-star rating-color"></i>{{product.ratingsAverage}}</span>
+        </div>
+       </div>
+        <button (click)="addCart(product._id)" class="btn-main w-100 ">Add Product</button>
+      </div>
+    </div>
+  </div>
+</section>

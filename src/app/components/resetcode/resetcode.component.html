@@ -1,0 +1,7 @@
+<section class="bg-main-light w-75 mx-auto p-3 rounded shadow">
+  <form [formGroup]="resetCodeForm" (ngSubmit)="resetCode()">
+    <label for="resetCode">ResetCode : </label>
+    <input type="text" formControlName="resetCode" id="resetCode" class="form-control" placeholder="Please Type your resetCode here .....">
+    <button class="btn btn-outline-success w-100 my-3">Verify ResetCode</button>
+  </form>
+  </section>
